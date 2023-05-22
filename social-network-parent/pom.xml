@@ -24,17 +24,17 @@
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <spring-boot-dependencies.version>3.0.6</spring-boot-dependencies.version>
-    <spring-boot.version>3.0.6</spring-boot.version>
+    <spring-boot-dependencies.version>3.1.0</spring-boot-dependencies.version>
+    <spring-boot.version>3.1.0</spring-boot.version>
 
-    <junit.version>5.9.3</junit.version>
+    <junit.version>5.9.2</junit.version>
+    <rest-assured.version>4.3.0</rest-assured.version>
     <assertj.version>3.24.2</assertj.version>
   </properties>
 
   <dependencyManagement>
-    <!-- >> test -->
-    <!-- junit -->
     <dependencies>
+      <!-- junit -->
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
@@ -56,8 +56,41 @@
         <artifactId>assertj-core</artifactId>
         <version>${assertj.version}</version>
       </dependency>
-      <!-- << test -->
-
+      <!-- REST-assured -->
+      <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>${rest-assured.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>spring-mock-mvc</artifactId>
+        <version>${rest-assured.version}</version>
+        <scope>test</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-xml</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- Faker Data-->
+      <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>0.15</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
       <dependency>
         <!-- Import dependency management from Spring Boot -->
         <groupId>org.springframework.boot</groupId>
@@ -66,7 +99,14 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      
+
+      <dependency>
+        <groupId>com.bredah</groupId>
+        <artifactId>social-network-bom</artifactId>
+        <version>${project.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -136,7 +176,7 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
           <version>${spring-boot.version}</version>
-          </plugin>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>

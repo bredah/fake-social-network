@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug (Attach by Process ID)",
+      "request": "attach",
+      "processId": "${command:PickJavaProcess}"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Attach)",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 5005
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot :: social-network-web",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.bredah.web.WebApplication",
+      "projectName": "social-network-web",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

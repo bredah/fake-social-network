@@ -1,4 +1,13 @@
 {
   "files.insertFinalNewline": true,
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.debug.settings.hotCodeReplace": "auto",
+  "boot-java.change-detection.on": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    // "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingIndent": "same",
+    "editor.wordWrapColumn": 200
+  },
 }

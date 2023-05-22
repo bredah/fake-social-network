@@ -10,7 +10,7 @@
 
   <url>https://www.github.com/bredah/fake-social-network</url>
   
-  <name>Social Network :: Root</name>
+  <name>Social Network :: Project</name>
   <packaging>pom</packaging>
 
   <modules>
