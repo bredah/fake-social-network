@@ -92,6 +92,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
     </dependency>
+    <!-- permite o spring.boot acessar o arquivo .env -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
     <!-- data base -->
     <dependency>
       <groupId>com.h2database</groupId>
