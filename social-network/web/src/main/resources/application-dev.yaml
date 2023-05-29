@@ -1,24 +1,23 @@
 server:
-  port: 8443
+  port: 8080
+  # SSL
+  # port: 8443
   ssl:
-    enabled: true
-    key-store: classpath:${CERT_PATH}/certificado.crt
-    key-store-type: PKCS12
+    enabled: false
+    key-store: ${CERT_PATH}/cert.p12
+    key-store-password: password
+    keyStoreType: PKCS12
 management:
   endpoints:
     enabled-by-default: true
     web:
       exposure:
         include: health,info,beans
-info:
-  application:
-    name: Spring Sample Application
-    description: This is my first spring boot application
-    version: 1.0.0
 logging:
   register-shutdown-hook: true
   level:
     web: DEBUG
+    root: INFO
 spring:
   config:
     activate:
@@ -31,6 +30,8 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
   h2:
     console:
       enabled: true

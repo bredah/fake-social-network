@@ -56,6 +56,12 @@
         <artifactId>assertj-core</artifactId>
         <version>${assertj.version}</version>
       </dependency>
+      <!-- ArchUnit -->
+      <dependency>
+        <groupId>com.tngtech.archunit</groupId>
+        <artifactId>archunit-junit5</artifactId>
+        <version>0.14.1</version>
+      </dependency>
       <!-- REST-assured -->
       <dependency>
         <groupId>io.rest-assured</groupId>

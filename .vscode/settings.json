@@ -10,4 +10,5 @@
     "editor.wrappingIndent": "same",
     "editor.wordWrapColumn": 200
   },
+  "postman.telemetry.enabled": false
 }

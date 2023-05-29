@@ -1,7 +1,6 @@
 package com.bredah.web.service;
 
 
-import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,16 +21,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 
   private Map<Long, Usuario> usuarios;
 
-  public UsuarioServiceImpl() {
-    this.usuarios = new HashMap<>();
-  }
 
   @Override
   public void cadastrarUsuario(Usuario usuario) {
     if (existeUsuario(usuario.getApelido())) {
       throw new UsuarioExistenteException("Usuário já cadastrado");
     }
-    usuarios.put(usuario.getId(), usuario);
+    // Criptografar a senha
+    String senhaCriptografada = criptografarSenha(usuario.getSenha());
+    // Atualizar o campo senha na entidade Usuario com a senha criptografada
+    usuario.setSenha(senhaCriptografada);
+    usuarioRepository.save(usuario);
   }
 
   @Override
@@ -83,4 +83,10 @@ public class UsuarioServiceImpl implements UsuarioService {
   public boolean existeUsuario(String apelido) {
     return usuarioRepository.findByApelido(apelido).isPresent();
   }
+
+  public String criptografarSenha(String senha) {
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    return encoder.encode(senha);
+  }
+
 }

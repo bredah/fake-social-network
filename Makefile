@@ -4,6 +4,8 @@ MVN_REPORT := target/site/surefire-report.html
 
 TIMESTAMP := $(shell date +'%F %T')
 
+CERT_PATH := $(HOME)/.openssl/dev
+
 compile: # compile project
 	./mvnw clean compile
 
@@ -12,15 +14,17 @@ start-api:
 
 report-maven: # Gerar relatorio HTML utilizando maven
 	@./mvnw  surefire-report:report
-	
-	$(info $(TIMESTAMP) [INFO] maven report generate in: $(MVN_REPORT))
+	@echo $(TIMESTAMP) [INFO] maven report generate in: $(MVN_REPORT)
 
 create-ssl-cert:
-	@mkdir -p certs
-	@bash ./script/create-pem.sh ./certs
-# gere uma chave privada
-	@openssl genpkey -algorithm RSA -out ./certs/chave-privada.key -pkeyopt rsa_keygen_bits:2048
-# crie uma solicitação de assinatura de certificado (CSR)
-	@openssl req -new -key ./certs/chave-privada.key -out ./certs/csr.csr  -config ./certs/openssl.cnf
-# auto-assine o certificado
-	@openssl x509 -req -in ./certs/csr.csr -signkey ./certs/chave-privada.key -out ./certs/certificado.crt
+	@mkdir -p $(CERT_PATH)
+# remove arquivos anteriores
+	@find $(CERT_PATH) -mindepth 1 -exec rm -rf {} +
+# gera arquivo de configuraç~åo do certificado
+	@bash ./script/create-pem.sh $(CERT_PATH)
+# cria um certificado auto assinado, gera chave privada, o certificado, validade e as configurações a serem utilizadas no certificado
+	@openssl req -x509 -newkey rsa:4096 -keyout $(CERT_PATH)/key.pem -out $(CERT_PATH)/cert.pem -days 365 -nodes -config $(CERT_PATH)/openssl.cnf
+# gera o arquivo PKCS12 e define a senha de acesso ao certificado
+	@openssl pkcs12 -export -out $(CERT_PATH)/cert.p12 -inkey $(CERT_PATH)/key.pem -in $(CERT_PATH)/cert.pem -password pass:password
+# testa o certificado
+# openssl pkcs12 -info -noout -in certs/keyStore.p12

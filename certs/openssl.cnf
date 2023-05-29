@@ -1,5 +1,3 @@
-#!/bin/bash
-cat <<EOT >> "${1}/openssl.cnf"
 [ req ]
 default_bits = 2048
 prompt = no
@@ -13,4 +11,3 @@ O = Org Name
 OU = Org Unit Name
 emailAddress = test@email.com
 CN = localhost
-EOT

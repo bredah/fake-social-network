@@ -92,6 +92,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
     </dependency>
+    <!-- adicionar suporte a log -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-logging</artifactId>
+    </dependency>
     <!-- permite o spring.boot acessar o arquivo .env -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
