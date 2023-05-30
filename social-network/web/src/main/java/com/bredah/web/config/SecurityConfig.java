@@ -13,36 +13,34 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-
   private static final String[] ALLOW_LIST_PATH = {
-    "/usuario",
-  };
-  
-  private static final String[] DENY_LIST_PATH = {
-    "/usuario/admin",
+      "/usuario",
+      "/mensagem",
   };
 
+  private static final String[] DENY_LIST_PATH = {
+      "/usuario/admin",
+  };
 
   @Bean
   BCryptPasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder(6);
   }
 
-
   @Bean
   @Profile("dev")
   SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-      return httpSecurity
-          .csrf(csrf -> csrf.disable())
-          .headers((headers) -> headers
-              .defaultsDisabled()
-              .frameOptions(frameOptions -> frameOptions
-                  .sameOrigin())) // habilita acessar o H2
-          .authorizeHttpRequests(auth -> auth
-              .requestMatchers(ALLOW_LIST_PATH).permitAll()
-              .requestMatchers(PathRequest.toH2Console()).permitAll() // habilita acessar o H2
-              .requestMatchers(DENY_LIST_PATH).authenticated())
-          .build();
+    return httpSecurity
+        .csrf(csrf -> csrf.disable())
+        .headers((headers) -> headers
+            .defaultsDisabled()
+            .frameOptions(frameOptions -> frameOptions
+                .sameOrigin())) // habilita acessar o H2
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers(ALLOW_LIST_PATH).permitAll()
+            .requestMatchers(PathRequest.toH2Console()).permitAll() // habilita acessar o H2
+            .requestMatchers(DENY_LIST_PATH).authenticated())
+        .build();
 
   }
 

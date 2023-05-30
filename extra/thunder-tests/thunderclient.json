@@ -1,56 +1,14 @@
 [
   {
-    "_id": "53849788-1c74-4cd6-9e25-4f71789e69a1",
-    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
-    "containerId": "",
-    "name": "/",
-    "url": "/demo",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2023-05-14T13:56:04.097Z",
-    "modified": "2023-05-14T16:26:48.700Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "c76f7c5d-bbb9-44fe-bf87-3622e8467724",
-    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
-    "containerId": "",
-    "name": "https://www.thunderclient.com/welcome",
-    "url": "https://www.thunderclient.com/welcome",
-    "method": "GET",
-    "sortNum": 20000,
-    "created": "2023-05-14T13:56:39.911Z",
-    "modified": "2023-05-14T13:56:39.912Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "feac25d8-629c-458d-947d-380a24b709cc",
-    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
-    "containerId": "f1ebd796-cd65-4c77-89da-a442d2ae193e",
-    "name": "fetchAll",
-    "url": "/person",
-    "method": "GET",
-    "sortNum": 30000,
-    "created": "2023-05-14T14:05:46.388Z",
-    "modified": "2023-05-14T14:05:59.703Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "4b4cf150-96b4-42fe-83bf-fbf1328e2558",
     "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
     "containerId": "f1ebd796-cd65-4c77-89da-a442d2ae193e",
-    "name": "create",
+    "name": "novo usuario",
     "url": "{{base_url}}/usuario",
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-14T14:06:13.687Z",
-    "modified": "2023-05-29T19:20:53.229Z",
+    "modified": "2023-05-30T17:55:23.256Z",
     "headers": [
       {
         "name": "Accept",
@@ -66,7 +24,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"apelido\": \"none\",\n  \"nome\": \"void\",\n  \"email\": \"asaacad@mail.com\",\n  \"senha\": \"ab21332c12\"\n}",
+      "raw": "{\n  \"apelido\": \"josephs\",\n  \"nome\": \"Jose Pessoa\",\n  \"email\": \"jose.pessoa@mail.com\",\n  \"senha\": \"Abcd1234\"\n}",
       "form": []
     },
     "tests": []
@@ -76,11 +34,11 @@
     "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
     "containerId": "883f033d-9ae0-45c8-b72d-0ac4ed7775a4",
     "name": "fetchAll",
-    "url": "/actuator",
+    "url": "{{base_url}}/actuator",
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-05-14T15:17:31.387Z",
-    "modified": "2023-05-14T17:42:04.717Z",
+    "modified": "2023-05-30T17:55:47.595Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -90,11 +48,11 @@
     "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
     "containerId": "883f033d-9ae0-45c8-b72d-0ac4ed7775a4",
     "name": "health",
-    "url": "/actuator/health",
+    "url": "{{base_url}}/actuator/health",
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-05-14T15:18:02.125Z",
-    "modified": "2023-05-14T18:04:22.042Z",
+    "modified": "2023-05-30T17:55:52.903Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -104,11 +62,11 @@
     "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
     "containerId": "883f033d-9ae0-45c8-b72d-0ac4ed7775a4",
     "name": "info",
-    "url": "/actuator/info",
+    "url": "{{base_url}}/actuator/info",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-14T18:04:26.865Z",
-    "modified": "2023-05-14T18:10:12.085Z",
+    "modified": "2023-05-30T17:56:03.657Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -118,13 +76,205 @@
     "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
     "containerId": "883f033d-9ae0-45c8-b72d-0ac4ed7775a4",
     "name": "beans",
-    "url": "/actuator/beans",
+    "url": "{{base_url}}/actuator/beans",
     "method": "GET",
     "sortNum": 65000,
     "created": "2023-05-14T18:16:30.555Z",
-    "modified": "2023-05-14T18:16:40.300Z",
+    "modified": "2023-05-30T17:55:59.460Z",
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "a6ae4cd9-74c8-4da0-abbe-7a2951c9b6b2",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "a72c7fae-44df-4e94-babc-b30008852310",
+    "name": "publicar mensagem sem imagem ",
+    "url": "{{base_url}}/mensagem",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-05-29T21:50:49.077Z",
+    "modified": "2023-05-30T22:58:49.173Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "multipart/form-data"
+      },
+      {
+        "name": "Content-Type",
+        "value": "application/json",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "name",
+          "value": "John Doe"
+        },
+        {
+          "name": "conteudo",
+          "value": "Exemplo de mensagem"
+        }
+      ],
+      "files": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "_id": "22a788c8-ad75-4387-8e2d-6067f244d136",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "a72c7fae-44df-4e94-babc-b30008852310",
+    "name": "publicar mensagem sem imagem - erro: sem usuario",
+    "url": "{{base_url}}/mensagem",
+    "method": "POST",
+    "sortNum": 90000,
+    "created": "2023-05-30T17:46:05.728Z",
+    "modified": "2023-05-30T17:50:14.401Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"usuario\": \"\",\n  \"conteudo\": \"abc123\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.errors",
+        "action": "count",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.errors[0]",
+        "action": "equal",
+        "value": "usuario não pode estar vazio"
+      }
+    ]
+  },
+  {
+    "_id": "57a2ebce-2fb4-4324-9010-ddf17f25e3c3",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "a72c7fae-44df-4e94-babc-b30008852310",
+    "name": "publicar mensagem sem imagem - erro: sem conteudo",
+    "url": "{{base_url}}/mensagem",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2023-05-30T17:46:30.832Z",
+    "modified": "2023-05-30T17:52:24.686Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"usuario\": \"demo\",\n  \"conteudo\": \"\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "400"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.errors",
+        "action": "count",
+        "value": "1"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.errors[0]",
+        "action": "equal",
+        "value": "conteudo não pode estar vazio"
+      }
+    ]
+  },
+  {
+    "_id": "16753222-bee0-4041-be24-65793aa42f94",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "a72c7fae-44df-4e94-babc-b30008852310",
+    "name": "publicar mensagem com imagem ",
+    "url": "{{base_url}}/mensagem",
+    "method": "POST",
+    "sortNum": 110000,
+    "created": "2023-05-30T18:11:43.322Z",
+    "modified": "2023-05-30T18:23:10.338Z",
+    "headers": [
+      {
+        "name": "ContentType",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "usuario",
+          "value": "demo"
+        },
+        {
+          "name": "conteudo",
+          "value": "123"
+        }
+      ],
+      "files": [
+        {
+          "name": "imagem",
+          "value": "../assets/random_image.png"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      }
+    ]
   }
 ]

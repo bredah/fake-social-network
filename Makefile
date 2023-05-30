@@ -10,6 +10,9 @@ compile: # compile project
 	./mvnw clean compile
 
 start-api:
+	./mvnw -pl :social-network-web clean spring-boot:run -Dspring-boot.run.profiles=dev
+
+debug-api:
 	./mvnw -pl :social-network-web clean spring-boot:run -Dspring-boot.run.profiles=dev -Dspring.jmx.enabled=true
 
 report-maven: # Gerar relatorio HTML utilizando maven

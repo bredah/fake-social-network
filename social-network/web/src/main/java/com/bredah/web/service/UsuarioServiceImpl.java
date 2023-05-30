@@ -1,17 +1,17 @@
 package com.bredah.web.service;
 
-
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.bredah.web.entity.Usuario;
+
 import com.bredah.web.exception.UsuarioExistenteException;
+import com.bredah.web.model.Usuario;
 import com.bredah.web.repository.UsuarioRepository;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
-
 
   @Autowired
   private UsuarioRepository usuarioRepository;
@@ -20,7 +20,6 @@ public class UsuarioServiceImpl implements UsuarioService {
   private BCryptPasswordEncoder passwordEncoder;
 
   private Map<Long, Usuario> usuarios;
-
 
   @Override
   public void cadastrarUsuario(Usuario usuario) {

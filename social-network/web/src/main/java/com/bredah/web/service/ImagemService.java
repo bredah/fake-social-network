@@ -1,7 +1,8 @@
 package com.bredah.web.service;
 
 import org.springframework.web.multipart.MultipartFile;
-import com.bredah.web.entity.Imagem;
+
+import com.bredah.web.model.Imagem;
 
 public interface ImagemService {
 

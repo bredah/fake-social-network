@@ -18,10 +18,8 @@ logging:
   level:
     web: DEBUG
     root: INFO
+    org.springframework: INFO
 spring:
-  config:
-    activate:
-      on-profile: dev
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa

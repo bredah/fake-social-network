@@ -1,7 +1,7 @@
 package com.bredah.web.service;
 
 import com.bredah.web.dto.MensagemRequest;
-import com.bredah.web.entity.Mensagem;
+import com.bredah.web.model.Mensagem;
 
 public interface MensagemService {
 

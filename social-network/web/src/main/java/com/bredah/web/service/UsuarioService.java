@@ -1,6 +1,6 @@
 package com.bredah.web.service;
 
-import com.bredah.web.entity.Usuario;
+import com.bredah.web.model.Usuario;
 
 public interface UsuarioService {
 
