@@ -16,6 +16,7 @@ public class SecurityConfig {
   private static final String[] ALLOW_LIST_PATH = {
       "/usuario",
       "/mensagem",
+      "/timeline/mensagens"
   };
 
   private static final String[] DENY_LIST_PATH = {

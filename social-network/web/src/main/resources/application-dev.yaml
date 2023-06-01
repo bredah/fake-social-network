@@ -19,6 +19,8 @@ logging:
     web: DEBUG
     root: INFO
     org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
@@ -26,10 +28,25 @@ spring:
     password:
     driverClassName: org.h2.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+    sql:
+      init:
+        mode: always
+
   h2:
     console:
       enabled: true

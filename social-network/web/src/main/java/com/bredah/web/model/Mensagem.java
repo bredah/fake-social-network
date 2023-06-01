@@ -1,5 +1,6 @@
 package com.bredah.web.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,15 +11,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
+@ToString
+@Table(name = "mensagem")
 public class Mensagem {
 
   @Id
@@ -39,6 +44,8 @@ public class Mensagem {
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   @JoinColumn(name = "mensagem_id")
   private List<Imagem> imagens;
+
+  private LocalDateTime dataCriacao;
 
   private int gostei = 0;
 

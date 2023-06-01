@@ -1,11 +1,14 @@
 package com.bredah.web.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -60,6 +63,42 @@ public class MensagemServiceImpl implements MensagemService {
       mensagem.setImagens(imagens);
     }
     return mensagemRepository.save(mensagem);
+  }
+
+  @Override
+  public Mensagem criarMensagem(String usuario, String conteudo, List<MultipartFile> imagens) {
+    Mensagem mensagem = Mensagem.builder()
+        .usuario(usuario)
+        .conteudo(conteudo)
+        .dataCriacao(LocalDateTime.now())
+        .build();
+
+    Set<ConstraintViolation<Mensagem>> violations = validator.validate(mensagem);
+    Set<ConstraintViolation<?>> genericViolations = new HashSet<>();
+
+    for (ConstraintViolation<Mensagem> violation : violations) {
+      genericViolations.add(violation);
+    }
+
+    if (!genericViolations.isEmpty()) {
+      throw new ValidationException("Erros de validação encontrados", genericViolations);
+
+    }
+
+    List<Imagem> listImagens = new ArrayList<Imagem>();
+    if (imagens != null && !imagens.isEmpty()) {
+      for (MultipartFile imagemAnexada : imagens) {
+        Imagem imagem = imagemService.salvarImagem(imagemAnexada);
+        listImagens.add(imagem);
+      }
+      mensagem.setImagens(listImagens);
+    }
+    return mensagemRepository.save(mensagem);
+  }
+
+  @Override
+  public Page<Mensagem> obterTodasAsMensagensEmOrdemDescrescente(Pageable pageable) {
+    return mensagemRepository.obterTodasAsMensagensEmOrdemDescrescente(pageable);
   }
 
   @Override

@@ -94,11 +94,12 @@
     "method": "POST",
     "sortNum": 80000,
     "created": "2023-05-29T21:50:49.077Z",
-    "modified": "2023-05-30T22:58:49.173Z",
+    "modified": "2023-06-01T20:06:13.795Z",
     "headers": [
       {
         "name": "Content-Type",
-        "value": "multipart/form-data"
+        "value": "multipart/form-data",
+        "isDisabled": true
       },
       {
         "name": "Content-Type",
@@ -112,22 +113,21 @@
       "raw": "",
       "form": [
         {
-          "name": "name",
+          "name": "usuario",
           "value": "John Doe"
         },
         {
           "name": "conteudo",
           "value": "Exemplo de mensagem"
         }
-      ],
-      "files": []
+      ]
     },
     "tests": [
       {
         "type": "res-code",
         "custom": "",
         "action": "equal",
-        "value": "200"
+        "value": "201"
       },
       {
         "type": "res-body",
@@ -234,7 +234,7 @@
     "method": "POST",
     "sortNum": 110000,
     "created": "2023-05-30T18:11:43.322Z",
-    "modified": "2023-05-30T18:23:10.338Z",
+    "modified": "2023-05-30T23:19:08.757Z",
     "headers": [
       {
         "name": "ContentType",
@@ -257,7 +257,7 @@
       ],
       "files": [
         {
-          "name": "imagem",
+          "name": "imagens",
           "value": "../assets/random_image.png"
         }
       ]
@@ -276,5 +276,19 @@
         "value": ""
       }
     ]
+  },
+  {
+    "_id": "ade4762c-7ed8-4ba7-9e6f-aa30c1c0b8b6",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "1eaab511-d7bc-417d-af74-f4f52b558e5b",
+    "name": "listar",
+    "url": "{{base_url}}/timeline/mensagens",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-06-01T20:04:56.680Z",
+    "modified": "2023-06-01T20:05:25.587Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
