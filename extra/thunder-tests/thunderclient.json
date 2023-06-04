@@ -146,13 +146,22 @@
     "method": "POST",
     "sortNum": 90000,
     "created": "2023-05-30T17:46:05.728Z",
-    "modified": "2023-05-30T17:50:14.401Z",
+    "modified": "2023-06-03T21:33:10.584Z",
     "headers": [],
     "params": [],
     "body": {
-      "type": "json",
-      "raw": "{\n  \"usuario\": \"\",\n  \"conteudo\": \"abc123\"\n}",
-      "form": []
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "usuario",
+          "value": ""
+        },
+        {
+          "name": "conteudo",
+          "value": "Exemplo de mensagem"
+        }
+      ]
     },
     "tests": [
       {
@@ -190,13 +199,22 @@
     "method": "POST",
     "sortNum": 100000,
     "created": "2023-05-30T17:46:30.832Z",
-    "modified": "2023-05-30T17:52:24.686Z",
+    "modified": "2023-06-03T21:33:25.132Z",
     "headers": [],
     "params": [],
     "body": {
-      "type": "json",
-      "raw": "{\n  \"usuario\": \"demo\",\n  \"conteudo\": \"\"\n}",
-      "form": []
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "usuario",
+          "value": "John Doe"
+        },
+        {
+          "name": "conteudo",
+          "value": ""
+        }
+      ]
     },
     "tests": [
       {
@@ -234,7 +252,7 @@
     "method": "POST",
     "sortNum": 110000,
     "created": "2023-05-30T18:11:43.322Z",
-    "modified": "2023-05-30T23:19:08.757Z",
+    "modified": "2023-06-04T17:29:50.468Z",
     "headers": [
       {
         "name": "ContentType",
@@ -281,14 +299,127 @@
     "_id": "ade4762c-7ed8-4ba7-9e6f-aa30c1c0b8b6",
     "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
     "containerId": "1eaab511-d7bc-417d-af74-f4f52b558e5b",
-    "name": "listar",
+    "name": "exibir timeline",
     "url": "{{base_url}}/timeline/mensagens",
     "method": "GET",
     "sortNum": 110000,
     "created": "2023-06-01T20:04:56.680Z",
-    "modified": "2023-06-01T20:05:25.587Z",
+    "modified": "2023-06-03T21:28:32.286Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.content",
+        "action": "count",
+        "value": "10"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.numberOfElements",
+        "action": "equal",
+        "value": "10"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.size",
+        "action": "equal",
+        "value": "10"
+      }
+    ]
+  },
+  {
+    "_id": "47059487-709b-4746-bcc4-43920480afb3",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "883f033d-9ae0-45c8-b72d-0ac4ed7775a4",
+    "name": "mappings",
+    "url": "{{base_url}}/actuator/mappings",
+    "method": "GET",
+    "sortNum": 67500,
+    "created": "2023-06-02T19:13:50.478Z",
+    "modified": "2023-06-02T19:13:55.881Z",
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "6bf13367-ab94-4072-9963-e4faa5ab860e",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "1eaab511-d7bc-417d-af74-f4f52b558e5b",
+    "name": "exibir timeline - paginação",
+    "url": "{{base_url}}/timeline/mensagens?page=1&size=10",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2023-06-03T21:24:56.216Z",
+    "modified": "2023-06-03T21:31:47.331Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "page",
+        "value": "1",
+        "isPath": false
+      },
+      {
+        "name": "size",
+        "value": "10",
+        "isPath": false
+      }
+    ],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      },
+      {
+        "type": "json-query",
+        "custom": "json.content",
+        "action": "count",
+        "value": "10"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.numberOfElements",
+        "action": "equal",
+        "value": "10"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.size",
+        "action": "equal",
+        "value": "10"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.first",
+        "action": "equal",
+        "value": "false"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.last",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
   }
 ]

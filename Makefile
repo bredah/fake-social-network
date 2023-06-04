@@ -1,9 +1,5 @@
-MVN_PROP := -Dorg.slf4j.simpleLogger.showDateTime=true $\ 
-						-Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS
 MVN_REPORT := target/site/surefire-report.html
-
 TIMESTAMP := $(shell date +'%F %T')
-
 CERT_PATH := $(HOME)/.openssl/dev
 
 compile: # compile project
@@ -18,6 +14,18 @@ debug-api:
 report-maven: # Gerar relatorio HTML utilizando maven
 	@./mvnw  surefire-report:report
 	@echo $(TIMESTAMP) [INFO] maven report generate in: $(MVN_REPORT)
+
+test-unit:
+	@./mvnw test -Dtest="*Test" -Dsurefire.failIfNoSpecifiedTests=false
+
+test-integration:
+	@./mvnw test -Dtest="*IT" -Dsurefire.failIfNoSpecifiedTests=false
+
+test-all:
+	@./mvnw test -Dtest="*Test,*IT" -Dsurefire.failIfNoSpecifiedTests=false
+
+test: test-unit test-integration
+
 
 create-ssl-cert:
 	@mkdir -p $(CERT_PATH)

@@ -21,6 +21,7 @@ import org.springframework.http.ResponseEntity;
 import com.bredah.web.model.Usuario;
 import com.bredah.web.service.UsuarioService;
 
+
 public class UsuarioControllerTest {
 
   @Mock

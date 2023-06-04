@@ -10,6 +10,6 @@ import com.bredah.web.model.Mensagem;
 
 @Repository
 public interface MensagemRepository extends JpaRepository<Mensagem, Long> {
-  @Query("SELECT m FROM mensagem m ORDER BY m.dataCriacao DESC")
+  @Query("SELECT m FROM Mensagem m ORDER BY m.dataCriacao DESC")
   Page<Mensagem> obterTodasAsMensagensEmOrdemDescrescente(Pageable pageable);
 }

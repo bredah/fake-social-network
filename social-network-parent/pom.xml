@@ -24,12 +24,16 @@
     <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
+    <jacoco-maven-plugin.version>0.7.7.201606060606</jacoco-maven-plugin.version>
+
     <spring-boot-dependencies.version>3.1.0</spring-boot-dependencies.version>
     <spring-boot.version>3.1.0</spring-boot.version>
 
     <junit.version>5.9.2</junit.version>
     <rest-assured.version>4.3.0</rest-assured.version>
     <assertj.version>3.24.2</assertj.version>
+    <tests>fast</tests>
   </properties>
 
   <dependencyManagement>
@@ -103,8 +107,14 @@
         <artifactId>guava</artifactId>
         <version>30.1-jre</version>
       </dependency>
-          
-      
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>6.2.4.Final</version>
+      </dependency>
+
+
       <dependency>
         <!-- Import dependency management from Spring Boot -->
         <groupId>org.springframework.boot</groupId>
@@ -146,8 +156,13 @@
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>${maven-surefire-plugin.version}</version>
           <dependencies>
+            <dependency>
+              <groupId>org.junit.jupiter</groupId>
+              <artifactId>junit-jupiter-engine</artifactId>
+              <version>${junit.version}</version>
+            </dependency>
             <dependency>
               <groupId>me.fabriciorby</groupId>
               <artifactId>maven-surefire-junit5-tree-reporter</artifactId>
@@ -159,9 +174,11 @@
             <consoleOutputReporter>
               <disable>true</disable>
             </consoleOutputReporter>
+            <properties>
+              <configurationParameters>junit.jupiter.displayname.generator.default.remove-parent=true</configurationParameters>
+            </properties>
             <statelessTestsetInfoReporter
-              implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporterUnicode">
-            </statelessTestsetInfoReporter>
+              implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporterUnicode"> </statelessTestsetInfoReporter>
           </configuration>
         </plugin>
         <plugin>
@@ -208,7 +225,42 @@
             </plugins>
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${jacoco-maven-plugin.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>report</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>slow</id>
+      <properties>
+        <tests>slow</tests>
+      </properties>
+    </profile>
+    <profile>
+      <id>integration</id>
+      <properties>
+        <tests>integration</tests>
+      </properties>
+    </profile>
+  </profiles>
 </project>

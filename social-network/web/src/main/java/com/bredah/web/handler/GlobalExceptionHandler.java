@@ -86,4 +86,6 @@ public class GlobalExceptionHandler {
     // Handle other exceptions if needed
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
   }
+
+  
 }
