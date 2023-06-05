@@ -25,11 +25,6 @@
         <artifactId>social-network-core</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <dependency>
-        <groupId>com.bredah</groupId>
-        <artifactId>social-network-config</artifactId>
-        <version>${project.version}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>

@@ -73,11 +73,8 @@
       <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
 
-    <!-- project modules-->
-    <dependency>
-      <groupId>com.bredah</groupId>
-      <artifactId>social-network-config</artifactId>
-    </dependency>
+      <!-- project modules-->
+    
   </dependencies>
 
   <build>

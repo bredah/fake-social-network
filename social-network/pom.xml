@@ -22,7 +22,6 @@
     <module>social-network-auth</module>
     <module>social-network-bom</module>
     <module>social-network-core</module>
-    <module>social-network-config</module>
     <module>social-network-web</module>
   </modules>
 
