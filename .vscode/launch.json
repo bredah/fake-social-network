@@ -22,6 +22,16 @@
       "projectName": "social-network-web",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigurationServiceApplication<social-network-config>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.bredah.config.ConfigurationServiceApplication",
+      "projectName": "social-network-config",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

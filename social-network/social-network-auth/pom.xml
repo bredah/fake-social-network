@@ -109,6 +109,24 @@
               </resources>
             </configuration>
           </execution>
+          <execution>
+            <id>copy-springboot-config</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/src/main/resources</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}/../../social-network-parent/src/main/resources</directory>
+                  <includes>
+                    <include>*.yaml</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
       <plugin>

@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-14T14:06:13.687Z",
-    "modified": "2023-05-30T17:55:23.256Z",
+    "modified": "2023-06-04T18:26:54.988Z",
     "headers": [
       {
         "name": "Accept",
@@ -24,7 +24,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"apelido\": \"josephs\",\n  \"nome\": \"Jose Pessoa\",\n  \"email\": \"jose.pessoa@mail.com\",\n  \"senha\": \"Abcd1234\"\n}",
+      "raw": "{\n  \"apelido\": \"josephs\",\n  \"nome\": \"Jose Pessoa\",\n  \"email\": \"jose.pessoa@mail.com\",\n  \"senha\": \"abCd1234\"\n}",
       "form": []
     },
     "tests": []
@@ -421,5 +421,51 @@
         "value": "true"
       }
     ]
+  },
+  {
+    "_id": "8c6a4c53-bb1b-43d1-ab8e-1dd2f0ceff56",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "a72c7fae-44df-4e94-babc-b30008852310",
+    "name": "remover mensagem - sem imagem",
+    "url": "{{base_url}}/mensagem/1",
+    "method": "DELETE",
+    "sortNum": 130000,
+    "created": "2023-06-04T17:55:42.972Z",
+    "modified": "2023-06-04T18:02:19.814Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "admin",
+        "password": "7db87c79-0340-43f5-ba30-a9c1c3ca6745"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "f6b38100-2d5e-40bd-9e5f-3f557120da47",
+    "colId": "4ad5ca4f-1be1-44c8-8d18-efb596020393",
+    "containerId": "f1ebd796-cd65-4c77-89da-a442d2ae193e",
+    "name": "buscar usuario - acesso USER",
+    "url": "{{base_url}}/usuario/1",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-06-04T18:27:39.928Z",
+    "modified": "2023-06-04T18:28:09.731Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "*/*",
+        "isDisabled": true
+      },
+      {
+        "name": "Content-Type",
+        "value": "application/json",
+        "isDisabled": true
+      }
+    ],
+    "params": [],
+    "tests": []
   }
 ]

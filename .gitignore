@@ -45,3 +45,8 @@ buildNumber.properties
 
 # dev certificates
 cert
+
+# springboot application config shared
+social-network/social-network-auth/src/main/resources/*.yaml
+social-network/social-network-core/src/main/resources/*.yaml
+social-network/social-network-web/src/main/resources/*.yaml
